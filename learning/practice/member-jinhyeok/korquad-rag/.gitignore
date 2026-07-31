@@ -1,0 +1,14 @@
+# API 키, 가상환경, 다운로드 데이터, 생성된 인덱스를 .gitignore에 추가하여 Git에서 추적하지 않도록 설정. 이렇게 하면 민감한 정보와 불필요한 파일이 버전 관리에 포함되지 않음.
+# data, indexes, results 폴더 자체를 GitHub에 남기고 싶다면 .gitkeep 파일을 추가하여 빈 폴더를 유지할 수 있음.
+
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+.env
+
+data/*.json
+indexes/*.index
+indexes/*.json
+results/*.csv
