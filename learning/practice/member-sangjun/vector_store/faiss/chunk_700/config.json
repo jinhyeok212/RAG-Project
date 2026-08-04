@@ -1,0 +1,9 @@
+{
+  "model_name": "intfloat/multilingual-e5-small",
+  "chunk_size": 700,
+  "overlap": 50,
+  "embedding_dimension": 384,
+  "document_count": 200,
+  "chunk_count": 343,
+  "similarity": "cosine similarity via normalized vectors + inner product"
+}

@@ -1,0 +1,2 @@
+﻿model_name,chunk_size,top_k,question_count,answer_found_count,recall
+intfloat/multilingual-e5-small,300,5,30,29,0.9667
