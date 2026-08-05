@@ -9,6 +9,8 @@ logs/
 raw_data/
 Training/
 Validation/
+data/raw/
+data/temp/
 data/processed/
 data/experiment/
 chroma_db/
