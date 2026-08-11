@@ -1,0 +1,8 @@
+{"chunk_id":"chunk-001","document_id":"doc-leave","text":"연차 유급휴가는 근로자가 청구한 시기에 주는 것이 원칙이며, 사업 운영에 막대한 지장이 있는 경우 시기를 변경할 수 있습니다.","metadata":{"title":"휴가 정책","category":"인사"}}
+{"chunk_id":"chunk-002","document_id":"doc-leave","text":"직원은 연차 휴가를 사용하기 전에 사내 휴가 시스템에서 신청하고 팀장의 승인을 받아야 합니다.","metadata":{"title":"휴가 신청 절차","category":"인사"}}
+{"chunk_id":"chunk-003","document_id":"doc-expense","text":"출장 교통비와 숙박비는 회사 기준 한도 안에서 실비로 정산하며 영수증을 제출해야 합니다.","metadata":{"title":"출장비 정책","category":"재무"}}
+{"chunk_id":"chunk-004","document_id":"doc-expense","text":"출장비 정산서는 출장 종료일로부터 7일 이내에 증빙 자료와 함께 제출합니다.","metadata":{"title":"출장비 정산 절차","category":"재무"}}
+{"chunk_id":"chunk-005","document_id":"doc-security","text":"업무 계정의 비밀번호는 다른 서비스와 공유하지 않으며 다중 인증을 활성화해야 합니다.","metadata":{"title":"계정 보안 정책","category":"보안"}}
+{"chunk_id":"chunk-006","document_id":"doc-security","text":"보안 사고나 개인정보 유출이 의심되면 즉시 보안 담당 부서에 신고하고 관련 기록을 보존합니다.","metadata":{"title":"보안 사고 대응","category":"보안"}}
+{"chunk_id":"chunk-007","document_id":"doc-remote","text":"재택근무자는 회사가 승인한 기기를 사용하고 공용 와이파이 접속 시 회사 VPN을 사용해야 합니다.","metadata":{"title":"재택근무 보안","category":"근무"}}
+{"chunk_id":"chunk-008","document_id":"doc-training","text":"신규 입사자는 입사 후 30일 이내에 정보보호와 개인정보보호 필수 교육을 이수해야 합니다.","metadata":{"title":"신규 입사자 교육","category":"교육"}}
