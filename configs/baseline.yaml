@@ -1,0 +1,13 @@
+dataset_version: korquad_policy_v1
+chunking_version: char500_ov50_v1
+index_version: index_baseline_v1
+
+chunking:
+  size: 500
+  overlap: 50
+  unit: characters
+
+retrieval:
+  evaluation_max_k: 5
+  context_top_k: 3
+  distance_metric: cosine

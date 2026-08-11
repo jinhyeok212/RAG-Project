@@ -1,0 +1,4 @@
+decision:
+  answer_similarity_min: 0.60
+  total_latency_ms_max: 5000
+  cost_budget_per_trace: null
