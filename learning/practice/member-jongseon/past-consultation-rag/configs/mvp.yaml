@@ -1,0 +1,68 @@
+paths:
+  raw_root: "소상공인 고객 주문 질의-응답 텍스트"
+  processed_dir: "data/processed"
+  index_dir: "data/indexes"
+  report_dir: "reports"
+
+data:
+  mvp_category: "카페"
+  max_train_docs: 20000
+  max_validation_queries: 2000
+  previous_context_turns: 3
+  retrieval_text_version: "C"
+  chunksize: 50000
+  profile_max_rows_per_file: 100000
+
+columns:
+  speaker: "발화자"
+  text: "발화문"
+  category: "카테고리"
+  qa_id: "QA번호"
+  qa_role: "QA여부"
+  sentiment: "감성"
+  intent: "인텐트"
+  consultation_id: "상담번호"
+  turn_order: "상담내순번"
+  entities:
+    - "가격"
+    - "수량"
+    - "크기"
+    - "장소"
+    - "조직"
+    - "사람"
+    - "시간"
+    - "날짜"
+    - "상품명"
+
+retrieval:
+  top_k: 10
+  bm25:
+    k1: 1.5
+    b: 0.75
+    tokenizer: "mixed"
+  dense:
+    backend: "sklearn_tfidf"
+    model_name: "sklearn-char-word-tfidf"
+    normalize: true
+    max_features: 80000
+    char_ngram_min: 2
+    char_ngram_max: 4
+  ann:
+    enabled: true
+    svd_dim: 128
+    n_neighbors: 50
+  hybrid:
+    rrf_k: 60
+    dense_weight: 1.0
+    sparse_weight: 1.0
+  reranker:
+    enabled: true
+    backend: "lexical_overlap"
+    candidate_k: 50
+    top_k: 5
+
+generation:
+  provider: "local_template"
+  model: "retrieved-answer-only"
+  temperature: 0.0
+  max_tokens: 512
