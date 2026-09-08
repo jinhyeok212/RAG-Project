@@ -1,0 +1,37 @@
+{
+  "version": "ontong_youth_rag_mvp_v1",
+  "created_at": "2026-08-31T21:35:33+09:00",
+  "input": {
+    "chunks_path": "C:\\말똥가리\\data\\processed\\ontong_youth_chunks_v1\\chunks.jsonl",
+    "eval_questions_with_gold_chunks_path": "C:\\말똥가리\\data\\processed\\ontong_youth_chunks_v1\\eval_questions_with_gold_chunks.jsonl",
+    "chroma_pointer_path": "C:\\말똥가리\\data\\indexes\\ontong_youth_chroma_v1_pointer.json"
+  },
+  "output": {
+    "output_dir": "C:\\말똥가리\\data\\processed\\ontong_youth_rag_mvp_v1",
+    "answers_path": "C:\\말똥가리\\data\\processed\\ontong_youth_rag_mvp_v1\\rag_answers.jsonl",
+    "metrics_path": "C:\\말똥가리\\data\\processed\\ontong_youth_rag_mvp_v1\\rag_answer_metrics.csv",
+    "caution_cases_path": "C:\\말똥가리\\data\\processed\\ontong_youth_rag_mvp_v1\\rag_caution_cases.jsonl",
+    "report_path": "C:\\말똥가리\\data\\processed\\ontong_youth_rag_mvp_v1\\rag_mvp_report.md"
+  },
+  "retrieval": {
+    "backend": "Chroma",
+    "embedding_backend": "sklearn_char_tfidf_svd",
+    "collection_name": "ontong_youth_chunks_v1_sklearn_tfidf_svd",
+    "top_k": 10,
+    "context_chunks_per_doc": 3
+  },
+  "generation": {
+    "backend": "local_extractive_template",
+    "policy": "Use only retrieved chunk text. No external LLM call."
+  },
+  "summary": {
+    "query_count": 47,
+    "top1_document_hit": 0.659574,
+    "top5_document_hit": 0.893617,
+    "selected_document_hit": 0.659574,
+    "avg_answer_char_length": 374.809,
+    "avg_evidence_count": 3,
+    "avg_latency_ms": 73.222,
+    "caution_case_count": 16
+  }
+}

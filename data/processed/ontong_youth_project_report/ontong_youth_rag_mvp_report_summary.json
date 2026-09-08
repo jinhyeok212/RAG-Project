@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-08-24T21:49:20.441882+09:00",
+  "pdf": "C:\\말똥가리\\data\\processed\\ontong_youth_project_report\\ontong_youth_rag_mvp_report_readable_v3.pdf",
+  "page_count": 21,
+  "input_counts": {
+    "raw_policies": 2728,
+    "normalized_policies": 2728,
+    "mvp_documents": 400,
+    "eval_questions": 47,
+    "qrels_rows": 50,
+    "multi_qrels_queries": 3
+  }
+}

@@ -1,0 +1,2 @@
+﻿method,query_count,chunk_hit@1,chunk_hit@3,chunk_hit@5,chunk_hit@10,chunk_recall@5,chunk_recall@10,chunk_mrr,document_hit@1,document_hit@3,document_hit@5,document_hit@10,document_mrr,latency_ms
+Chroma SVD,47,0.659574,0.765957,0.893617,0.914894,0.660081,0.740628,0.737825,0.659574,0.765957,0.893617,0.914894,0.737825,95.33353

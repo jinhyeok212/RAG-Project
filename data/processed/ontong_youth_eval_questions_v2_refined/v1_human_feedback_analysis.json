@@ -1,0 +1,109 @@
+{
+  "source_feedback_file": "C:\\Users\\Admin\\Downloads\\eval_question_candidates_review_labeled.csv",
+  "row_count": 100,
+  "label_counts": {
+    "0": 100
+  },
+  "category_label_counts": {
+    "교육": {
+      "0": 15
+    },
+    "복지문화": {
+      "0": 20
+    },
+    "일자리": {
+      "0": 35
+    },
+    "주거": {
+      "0": 15
+    },
+    "참여권리": {
+      "0": 15
+    }
+  },
+  "question_type_label_counts": {
+    "application_method": {
+      "0": 17
+    },
+    "application_period": {
+      "0": 17
+    },
+    "eligibility": {
+      "0": 9
+    },
+    "required_documents": {
+      "0": 16
+    },
+    "situation_search": {
+      "0": 21
+    },
+    "support_content": {
+      "0": 20
+    }
+  },
+  "top_feedback_notes": [
+    {
+      "note": "정책명이 질문에 거의 그대로 포함되어 검색 평가가 너무 쉬워짐",
+      "count": 71
+    },
+    {
+      "note": "질문이 너무 포괄적이라 여러 정책이 정답이 될 수 있어 정답 문서가 명확하지 않음",
+      "count": 17
+    },
+    {
+      "note": "질문이 너무 포괄적이고, 정답 문서는 취업 일반보다 창업 지원에 가까워 정답 문서가 명확하지 않음",
+      "count": 1
+    },
+    {
+      "note": "reference_answer에 실제 제출서류가 없고 공고문 확인 안내만 있어 답변 근거 부족",
+      "count": 1
+    },
+    {
+      "note": "reference_answer가 구체적인 지원 대상 기준을 제시하지 못해 신청 자격 답변 근거가 부족함",
+      "count": 1
+    },
+    {
+      "note": "reference_answer에 병역 미필 제외만 있어 전체 신청 대상/자격을 판단하기 어려움",
+      "count": 1
+    },
+    {
+      "note": "reference_answer에 실제 제출서류가 없고 참고사이트 확인 안내만 있어 답변 근거 부족",
+      "count": 1
+    },
+    {
+      "note": "질문은 교육비·학자금 부담 지원을 묻지만 정답 문서는 스마트농업 교육과정으로 질문과 정답 문서가 맞지 않음",
+      "count": 1
+    },
+    {
+      "note": "reference_answer는 취약청년 우선선정 기준만 제시해 전체 신청 대상/자격을 판단하기 어려움",
+      "count": 1
+    },
+    {
+      "note": "reference_answer가 '-'로 되어 있어 제출서류에 대한 답변 근거가 없음",
+      "count": 1
+    },
+    {
+      "note": "질문은 역량강화 정책을 폭넓게 묻지만 정답 문서는 장학금 지원으로 정답 문서가 명확하지 않음",
+      "count": 1
+    },
+    {
+      "note": "reference_answer에 실제 제출서류가 없고 붙임파일 확인 안내만 있어 답변 근거 부족",
+      "count": 1
+    },
+    {
+      "note": "질문은 교육비·학자금 부담 지원을 묻지만 정답 문서는 금융교육 봉사단 참여 사업으로 질문과 정답 문서가 맞지 않음",
+      "count": 1
+    },
+    {
+      "note": "정책 분야가 정책인프라구축으로 분류되어 있으나 정답 문서는 중증장애인근로자 출퇴근 비용 지원으로 분야가 맞지 않음",
+      "count": 1
+    }
+  ],
+  "rule_changes_applied": [
+    "???? ??? ??? ?? ??? ??",
+    "?? ???? ?? ??",
+    "??+??+???? ??? ?? ?? ??",
+    "reference_answer? ??? ????/?? ?? ??",
+    "??? ??? token overlap ??"
+  ]
+}

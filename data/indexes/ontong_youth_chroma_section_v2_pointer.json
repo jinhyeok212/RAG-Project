@@ -1,0 +1,10 @@
+{
+  "version": "ontong_youth_chroma_section_v2_pointer",
+  "reason": "Chroma persistent HNSW files failed under the Korean workspace path, so the runtime index is stored under an ASCII path.",
+  "index_dir": "C:\\Users\\Admin\\chroma_indexes\\ontong_youth_chroma_section_v2",
+  "chroma_path": "C:\\Users\\Admin\\chroma_indexes\\ontong_youth_chroma_section_v2\\chroma",
+  "encoder_path": "C:\\Users\\Admin\\chroma_indexes\\ontong_youth_chroma_section_v2\\sklearn_tfidf_svd_encoder.joblib",
+  "collection_name": "ontong_youth_chunks_section_v2_sklearn_tfidf_svd",
+  "manifest_path": "C:\\Users\\Admin\\chroma_indexes\\ontong_youth_chroma_section_v2\\chroma_manifest.json",
+  "created_at": "2026-08-31T22:55:50+09:00"
+}

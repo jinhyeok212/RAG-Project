@@ -1,0 +1,43 @@
+﻿metric,value
+document_count,400
+qrel_count,50
+eval_question_count,47
+chunk_count,5662
+duplicate_document_id_count,0
+duplicate_chunk_id_count,0
+blank_document_id_count,0
+blank_retrieval_text_count,0
+retrieval_text_min_length,297
+retrieval_text_avg_length,1013.855
+retrieval_text_max_length,3617
+chunk_min_length,12
+chunk_avg_length,95.327
+chunk_max_length,500
+chunks_per_document_min,9
+chunks_per_document_avg,14.155
+chunks_per_document_max,21
+gold_chunk_count_min,9
+gold_chunk_count_avg,15.468
+gold_chunk_count_max,36
+questions_without_qrels_count,0
+questions_without_gold_chunks_count,0
+missing_qrel_document_id_count,0
+qrel_query_ids_without_eval_question_count,0
+section_chunk_count.지원 내용,429
+section_chunk_count.정책명,400
+section_chunk_count.정책 요약,400
+section_chunk_count.신청 방법,400
+section_chunk_count.주관 기관,400
+section_chunk_count.정책 대분류,400
+section_chunk_count.정책 중분류,400
+section_chunk_count.정책 키워드,400
+section_chunk_count.신청 기간,382
+section_chunk_count.제출 서류,353
+section_chunk_count.심사 방법,297
+section_chunk_count.신청 URL,272
+section_chunk_count.참고 URL,257
+section_chunk_count.운영 기관,212
+section_chunk_count.기타 사항,175
+section_chunk_count.추가 신청 자격,170
+section_chunk_count.사업 기간,158
+section_chunk_count.참여 대상,157

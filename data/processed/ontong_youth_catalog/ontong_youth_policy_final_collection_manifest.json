@@ -1,0 +1,188 @@
+{
+  "dataset_name": "Ontong Youth Policy API Collection",
+  "dataset_version": "ontong_youth_policy_raw_catalog_v1",
+  "source": "온통청년 청년정책 API",
+  "api_url": "https://www.youthcenter.go.kr/go/ythip/getPlcy",
+  "api_key_saved_in_files": false,
+  "collection_note": "Initial pageSize=10 collection had five failed pages; those 50 records were recovered with pageSize=1 and merged.",
+  "api_total_count": 2728,
+  "final_record_count": 2728,
+  "raw_record_jsonl_count": 2728,
+  "missing_policy_number_count": 0,
+  "duplicate_policy_number_count": 0,
+  "duplicate_document_id_count": 0,
+  "raw_dirs": {
+    "page_size_10": "C:\\말똥가리\\data\\raw\\ontong_youth\\policy_api_full_pagesize10",
+    "recovered_page_size_1": "C:\\말똥가리\\data\\raw\\ontong_youth\\policy_api_full_recovered_pagesize1"
+  },
+  "processed_files": {
+    "raw_records_jsonl": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_all_raw_records.jsonl",
+    "catalog_csv": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_catalog.csv",
+    "catalog_summary_csv": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_catalog_summary.csv",
+    "catalog_summary_json": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_catalog_summary.json",
+    "collection_manifest": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_collection_manifest.json",
+    "recovery_manifest": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_recovery_manifest.json"
+  },
+  "top_lclsfNm": [
+    [
+      "일자리",
+      1010
+    ],
+    [
+      "복지문화",
+      369
+    ],
+    [
+      "금융･복지･문화",
+      287
+    ],
+    [
+      "주거",
+      280
+    ],
+    [
+      "참여권리",
+      188
+    ],
+    [
+      "참여･기반",
+      175
+    ],
+    [
+      "교육",
+      160
+    ],
+    [
+      "교육･직업훈련",
+      153
+    ],
+    [
+      "일자리,교육",
+      50
+    ],
+    [
+      "참여권리,참여권리",
+      20
+    ],
+    [
+      "일자리,일자리",
+      19
+    ],
+    [
+      "교육･직업훈련,교육･직업훈련",
+      6
+    ],
+    [
+      "교육,교육",
+      4
+    ],
+    [
+      "주거,주거",
+      2
+    ],
+    [
+      "금융･복지･문화,금융･복지･문화,금융･복지･문화,금융･복지･문화",
+      1
+    ],
+    [
+      "금융･복지･문화,금융･복지･문화",
+      1
+    ],
+    [
+      "참여･기반,참여･기반",
+      1
+    ],
+    [
+      "일자리,일자리,일자리",
+      1
+    ],
+    [
+      "",
+      1
+    ]
+  ],
+  "top_mclsfNm": [
+    [
+      "취업",
+      634
+    ],
+    [
+      "창업",
+      324
+    ],
+    [
+      "취약계층 및 금융지원",
+      294
+    ],
+    [
+      "청년참여",
+      223
+    ],
+    [
+      "미래역량강화",
+      216
+    ],
+    [
+      "주택 및 거주지",
+      136
+    ],
+    [
+      "전월세 및 주거급여 지원",
+      135
+    ],
+    [
+      "문화활동 및 생활지원",
+      112
+    ],
+    [
+      "건강",
+      98
+    ],
+    [
+      "문화활동",
+      86
+    ]
+  ],
+  "top_plcyKywdNm": [
+    [
+      "교육지원",
+      906
+    ],
+    [
+      "보조금",
+      756
+    ],
+    [
+      "맞춤형상담서비스",
+      372
+    ],
+    [
+      "주거지원",
+      235
+    ],
+    [
+      "장기미취업청년",
+      234
+    ],
+    [
+      "인턴",
+      219
+    ],
+    [
+      "중소기업",
+      205
+    ],
+    [
+      "바우처",
+      143
+    ],
+    [
+      "벤처",
+      134
+    ],
+    [
+      "해외진출",
+      76
+    ]
+  ]
+}

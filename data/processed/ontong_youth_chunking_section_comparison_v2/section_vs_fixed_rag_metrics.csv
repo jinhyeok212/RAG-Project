@@ -1,0 +1,3 @@
+﻿chunking,top1_document_hit,top5_document_hit,selected_document_hit,caution_case_count,avg_answer_char_length,avg_latency_ms
+Fixed 500/50,0.659574,0.893617,0.659574,16,374.809,73.222
+Section-aware v2,0.723404,0.808511,0.723404,13,240,76.482

@@ -1,0 +1,64 @@
+{
+  "dataset_name": "Ontong Youth MVP 400 Evaluation Question Candidates",
+  "dataset_version": "ontong_youth_eval_questions_v1_candidates",
+  "source_documents": "C:\\말똥가리\\data\\processed\\ontong_youth_mvp_400_documents\\documents.jsonl",
+  "created_at": "2026-08-24T09:30:02.145436+00:00",
+  "status": "HUMAN_REVIEW_REQUIRED",
+  "question_count": 100,
+  "qrels_count": 100,
+  "skipped_count": 0,
+  "target_counts": {
+    "일자리": 35,
+    "복지문화": 20,
+    "주거": 15,
+    "교육": 15,
+    "참여권리": 15
+  },
+  "category_counts": {
+    "일자리": 35,
+    "복지문화": 20,
+    "주거": 15,
+    "교육": 15,
+    "참여권리": 15
+  },
+  "question_type_counts": {
+    "situation_search": 21,
+    "support_content": 20,
+    "eligibility": 9,
+    "application_method": 17,
+    "required_documents": 16,
+    "application_period": 17
+  },
+  "middle_counts": {
+    "취업": 15,
+    "창업": 14,
+    "재직자": 6,
+    "취약계층 및 금융지원": 5,
+    "문화활동": 5,
+    "건강": 5,
+    "예술인지원": 5,
+    "주택 및 거주지": 6,
+    "전월세 및 주거급여 지원": 6,
+    "기숙사": 3,
+    "미래역량강화": 5,
+    "교육비지원": 5,
+    "온라인교육": 5,
+    "청년참여": 4,
+    "정책인프라구축": 4,
+    "청년국제교류": 4,
+    "권익보호": 3
+  },
+  "review_label_definition": {
+    "1": "평가 질문으로 사용",
+    "0": "평가 질문에서 제외",
+    "2": "수정/보류 필요"
+  },
+  "output_files": {
+    "eval_question_candidates_jsonl": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v1\\eval_question_candidates.jsonl",
+    "eval_question_candidates_review_csv": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v1\\eval_question_candidates_review.csv",
+    "qrels_candidates_jsonl": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v1\\qrels_candidates.jsonl",
+    "qrels_candidates_csv": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v1\\qrels_candidates.csv",
+    "skipped_csv": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v1\\eval_question_generation_skipped.csv",
+    "manifest": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v1\\eval_question_generation_manifest.json"
+  }
+}

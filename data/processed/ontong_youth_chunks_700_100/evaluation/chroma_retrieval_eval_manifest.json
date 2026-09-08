@@ -1,0 +1,48 @@
+{
+  "version": "ontong_youth_chroma_eval_v1",
+  "created_at": "2026-08-31T21:16:17+09:00",
+  "input": {
+    "chunks_path": "data\\processed\\ontong_youth_chunks_700_100\\chunks.jsonl",
+    "eval_questions_with_gold_chunks_path": "data\\processed\\ontong_youth_chunks_700_100\\eval_questions_with_gold_chunks.jsonl",
+    "index_dir": "C:\\Users\\Admin\\chroma_indexes\\ontong_youth_chroma_700_100"
+  },
+  "output": {
+    "metrics_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chroma_retrieval_metrics.csv",
+    "summary_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chroma_retrieval_summary.csv",
+    "top_results_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chroma_retrieval_top_results.jsonl",
+    "failure_cases_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chroma_retrieval_failure_cases.jsonl",
+    "report_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chroma_retrieval_report.md"
+  },
+  "collection": {
+    "name": "ontong_youth_chunks_700_100_sklearn_tfidf_svd",
+    "count": 797
+  },
+  "embedding": {
+    "backend": "sklearn_char_tfidf_svd",
+    "svd_dim": 256
+  },
+  "retrieval": {
+    "top_k": 10
+  },
+  "counts": {
+    "eval_question_count": 47,
+    "failure_case_count": 5
+  },
+  "summary": {
+    "method": "Chroma SVD",
+    "query_count": 47,
+    "chunk_hit@1": 0.659574,
+    "chunk_hit@3": 0.765957,
+    "chunk_hit@5": 0.893617,
+    "chunk_hit@10": 0.914894,
+    "chunk_recall@5": 0.660081,
+    "chunk_recall@10": 0.740628,
+    "chunk_mrr": 0.737825,
+    "document_hit@1": 0.659574,
+    "document_hit@3": 0.765957,
+    "document_hit@5": 0.893617,
+    "document_hit@10": 0.914894,
+    "document_mrr": 0.737825,
+    "latency_ms": 95.33353
+  }
+}

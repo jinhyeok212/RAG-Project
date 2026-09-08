@@ -1,0 +1,48 @@
+{
+  "source": "온통청년 청년정책 API",
+  "url": "https://www.youthcenter.go.kr/go/ythip/getPlcy",
+  "recovery_started_at": "2026-08-23T11:51:01.739074+00:00",
+  "original_failed_pages": [
+    165,
+    198,
+    213,
+    218,
+    256
+  ],
+  "original_page_size": 10,
+  "recovery_page_size": 1,
+  "recovered_record_count": 50,
+  "still_failed_count": 0,
+  "still_failed": [],
+  "merged_record_count": 2728,
+  "missing_policy_number_count": 0,
+  "duplicate_policy_number_count": 0,
+  "duplicate_policy_numbers": [],
+  "category_counts": {
+    "주거": 280,
+    "참여･기반": 175,
+    "교육･직업훈련": 153,
+    "일자리": 1010,
+    "금융･복지･문화": 287,
+    "금융･복지･문화,금융･복지･문화,금융･복지･문화,금융･복지･문화": 1,
+    "일자리,일자리": 19,
+    "금융･복지･문화,금융･복지･문화": 1,
+    "주거,주거": 2,
+    "참여･기반,참여･기반": 1,
+    "교육･직업훈련,교육･직업훈련": 6,
+    "참여권리": 188,
+    "참여권리,참여권리": 20,
+    "복지문화": 369,
+    "교육": 160,
+    "일자리,교육": 50,
+    "교육,교육": 4,
+    "일자리,일자리,일자리": 1,
+    "": 1
+  },
+  "output_files": {
+    "raw_recovered_dir": "C:\\말똥가리\\data\\raw\\ontong_youth\\policy_api_full_recovered_pagesize1",
+    "raw_records_jsonl": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_all_raw_records.jsonl",
+    "catalog_csv": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_catalog.csv",
+    "recovery_manifest": "C:\\말똥가리\\data\\processed\\ontong_youth_catalog\\ontong_youth_policy_recovery_manifest.json"
+  }
+}

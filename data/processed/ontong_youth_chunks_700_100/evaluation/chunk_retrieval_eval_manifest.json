@@ -1,0 +1,90 @@
+{
+  "version": "ontong_youth_chunk_retrieval_eval_v1",
+  "created_at": "2026-08-31T21:14:24+09:00",
+  "input": {
+    "chunks_path": "data\\processed\\ontong_youth_chunks_700_100\\chunks.jsonl",
+    "eval_questions_with_gold_chunks_path": "data\\processed\\ontong_youth_chunks_700_100\\eval_questions_with_gold_chunks.jsonl"
+  },
+  "output": {
+    "output_dir": "data\\processed\\ontong_youth_chunks_700_100\\evaluation",
+    "metrics_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chunk_retrieval_metrics.csv",
+    "summary_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chunk_retrieval_summary.csv",
+    "top_results_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chunk_retrieval_top_results.jsonl",
+    "failure_cases_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chunk_retrieval_failure_cases.jsonl",
+    "report_path": "data\\processed\\ontong_youth_chunks_700_100\\evaluation\\chunk_retrieval_report.md"
+  },
+  "retrieval": {
+    "top_k": 10,
+    "methods": [
+      "BM25",
+      "Char TF-IDF",
+      "Hybrid RRF"
+    ],
+    "dense_backend": "sklearn_char_wb_tfidf",
+    "bm25_tokenizer": "korean_alnum_words_plus_2_3_char_ngrams",
+    "max_features": 80000,
+    "build_elapsed_ms": 1695.401
+  },
+  "counts": {
+    "chunk_count": 797,
+    "eval_question_count": 47,
+    "metric_row_count": 141,
+    "failure_case_count": 14
+  },
+  "gold_chunk_mapping": {
+    "strategy": "v1 broad candidate mapping: all chunks from each qrel-positive document are gold."
+  },
+  "summary": [
+    {
+      "method": "BM25",
+      "query_count": 47,
+      "chunk_hit@1": 0.702128,
+      "chunk_hit@3": 0.808511,
+      "chunk_hit@5": 0.851064,
+      "chunk_hit@10": 0.957447,
+      "chunk_recall@5": 0.599291,
+      "chunk_recall@10": 0.737082,
+      "chunk_mrr": 0.770584,
+      "document_hit@1": 0.702128,
+      "document_hit@3": 0.808511,
+      "document_hit@5": 0.851064,
+      "document_hit@10": 0.957447,
+      "document_mrr": 0.770584,
+      "latency_ms": 2.232391
+    },
+    {
+      "method": "Char TF-IDF",
+      "query_count": 47,
+      "chunk_hit@1": 0.659574,
+      "chunk_hit@3": 0.829787,
+      "chunk_hit@5": 0.93617,
+      "chunk_hit@10": 0.93617,
+      "chunk_recall@5": 0.651216,
+      "chunk_recall@10": 0.728217,
+      "chunk_mrr": 0.763121,
+      "document_hit@1": 0.659574,
+      "document_hit@3": 0.829787,
+      "document_hit@5": 0.93617,
+      "document_hit@10": 0.93617,
+      "document_mrr": 0.763121,
+      "latency_ms": 2.526534
+    },
+    {
+      "method": "Hybrid RRF",
+      "query_count": 47,
+      "chunk_hit@1": 0.680851,
+      "chunk_hit@3": 0.851064,
+      "chunk_hit@5": 0.914894,
+      "chunk_hit@10": 0.93617,
+      "chunk_recall@5": 0.648936,
+      "chunk_recall@10": 0.731763,
+      "chunk_mrr": 0.777305,
+      "document_hit@1": 0.680851,
+      "document_hit@3": 0.851064,
+      "document_hit@5": 0.914894,
+      "document_hit@10": 0.93617,
+      "document_mrr": 0.777305,
+      "latency_ms": 6.125549
+    }
+  ]
+}
