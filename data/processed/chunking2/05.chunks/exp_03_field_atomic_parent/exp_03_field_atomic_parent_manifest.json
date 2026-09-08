@@ -1,0 +1,70 @@
+{
+  "dataset_name": "Ontong Youth MVP 400 EXP 03 Field Atomic Parent Chunks",
+  "dataset_version": "exp_03_field_atomic_parent_v1",
+  "experiment_id": "exp_03_field_atomic_parent",
+  "created_at": "2026-08-30T12:28:00.626207+00:00",
+  "input_file": "01.document\\documents.jsonl",
+  "chunking_strategy": {
+    "name": "E1 field atomic chunks with parent expansion",
+    "target_field": "raw_record plus metadata atomic fields",
+    "max_body_chars": 800,
+    "overlap_chars": 120,
+    "header_included": true,
+    "field_atomic": true,
+    "parent_expansion": true,
+    "parent_document_file": "05.chunks\\exp_03_field_atomic_parent\\exp_03_field_atomic_parent_parent_documents.jsonl"
+  },
+  "counts": {
+    "document_count": 400,
+    "chunk_count": 8084,
+    "avg_chunks_per_document": 20.21,
+    "min_chunks_per_document": 15,
+    "max_chunks_per_document": 27,
+    "section_counts": {
+      "application_method": 669,
+      "application_period": 782,
+      "eligibility": 2136,
+      "notes": 848,
+      "overview": 2612,
+      "required_documents": 339,
+      "screening": 293,
+      "support_content": 405
+    }
+  },
+  "lengths": {
+    "body_char_count": {
+      "min": 1,
+      "avg": 73.8,
+      "p50": 30,
+      "p90": 163,
+      "p95": 287,
+      "max": 800
+    },
+    "text_char_count_with_header": {
+      "min": 185,
+      "avg": 295.1,
+      "p50": 259,
+      "p90": 388,
+      "p95": 510,
+      "max": 1059
+    }
+  },
+  "validation": {
+    "duplicate_chunk_id_count": 0,
+    "blank_chunk_count": 0,
+    "missing_document_ids": []
+  },
+  "chroma_ready_validation": {
+    "row_count": 8084,
+    "invalid_metadata_value_examples": [],
+    "metadata_is_flat_scalar": true
+  },
+  "output_files": {
+    "chunks_jsonl": "05.chunks\\exp_03_field_atomic_parent\\exp_03_field_atomic_parent_chunks.jsonl",
+    "chunks_chroma_ready_jsonl": "05.chunks\\exp_03_field_atomic_parent\\exp_03_field_atomic_parent_chunks_chroma_ready.jsonl",
+    "parent_documents_jsonl": "05.chunks\\exp_03_field_atomic_parent\\exp_03_field_atomic_parent_parent_documents.jsonl",
+    "quality_report_csv": "05.chunks\\exp_03_field_atomic_parent\\exp_03_field_atomic_parent_quality_report.csv",
+    "manifest": "05.chunks\\exp_03_field_atomic_parent\\exp_03_field_atomic_parent_manifest.json",
+    "brief_md": "05.chunks\\exp_03_field_atomic_parent\\EXPERIMENT_BRIEF.md"
+  }
+}
