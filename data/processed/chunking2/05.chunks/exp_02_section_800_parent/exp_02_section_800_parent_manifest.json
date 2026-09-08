@@ -1,0 +1,69 @@
+{
+  "dataset_name": "Ontong Youth MVP 400 EXP 02 Section 800 Parent Chunks",
+  "dataset_version": "exp_02_section_800_parent_v1",
+  "experiment_id": "exp_02_section_800_parent",
+  "created_at": "2026-08-30T12:27:58.370933+00:00",
+  "input_file": "01.document\\documents.jsonl",
+  "chunking_strategy": {
+    "name": "D1 C2 section-based chunks with parent expansion",
+    "base_strategy": "C2 section-based chunking",
+    "target_field": "retrieval_text",
+    "max_body_chars": 800,
+    "overlap_chars": 120,
+    "header_included": true,
+    "parent_expansion": true,
+    "parent_document_file": "05.chunks\\exp_02_section_800_parent\\exp_02_section_800_parent_parent_documents.jsonl"
+  },
+  "counts": {
+    "document_count": 400,
+    "chunk_count": 2875,
+    "avg_chunks_per_document": 7.188,
+    "min_chunks_per_document": 5,
+    "max_chunks_per_document": 12,
+    "section_counts": {
+      "application": 403,
+      "eligibility": 647,
+      "notes": 388,
+      "overview": 400,
+      "required_documents": 339,
+      "screening": 293,
+      "support_content": 405
+    }
+  },
+  "lengths": {
+    "body_char_count": {
+      "min": 19,
+      "avg": 252.8,
+      "p50": 212,
+      "p90": 522,
+      "p95": 723,
+      "max": 800
+    },
+    "text_char_count_with_header": {
+      "min": 183,
+      "avg": 433.8,
+      "p50": 391,
+      "p90": 701,
+      "p95": 904,
+      "max": 1017
+    }
+  },
+  "validation": {
+    "duplicate_chunk_id_count": 0,
+    "blank_chunk_count": 0,
+    "missing_document_ids": []
+  },
+  "chroma_ready_validation": {
+    "row_count": 2875,
+    "invalid_metadata_value_examples": [],
+    "metadata_is_flat_scalar": true
+  },
+  "output_files": {
+    "chunks_jsonl": "05.chunks\\exp_02_section_800_parent\\exp_02_section_800_parent_chunks.jsonl",
+    "chunks_chroma_ready_jsonl": "05.chunks\\exp_02_section_800_parent\\exp_02_section_800_parent_chunks_chroma_ready.jsonl",
+    "parent_documents_jsonl": "05.chunks\\exp_02_section_800_parent\\exp_02_section_800_parent_parent_documents.jsonl",
+    "quality_report_csv": "05.chunks\\exp_02_section_800_parent\\exp_02_section_800_parent_quality_report.csv",
+    "manifest": "05.chunks\\exp_02_section_800_parent\\exp_02_section_800_parent_manifest.json",
+    "brief_md": "05.chunks\\exp_02_section_800_parent\\EXPERIMENT_BRIEF.md"
+  }
+}
