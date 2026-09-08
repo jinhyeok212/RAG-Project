@@ -1,0 +1,5 @@
+﻿chunking,retrieval,chunk_count,avg_chunk_length,chunks_per_document_avg,gold_chunk_count_avg,chunk_hit@1,chunk_hit@5,chunk_hit@10,chunk_recall@5,chunk_mrr,latency_ms
+Fixed 500/50,Hybrid RRF,1060,413.719,2.65,2.979,0.702128,0.914894,0.957447,0.51052,0.781206,4.746543
+Fixed 500/50,Chroma SVD,1060,413.719,2.65,2.979,0.659574,0.893617,1.0,0.522636,0.752533,94.502183
+Section-aware v2,Hybrid RRF,5662,95.327,14.155,15.468,0.787234,0.851064,0.914894,0.189771,0.8224,9.413362
+Section-aware v2,Chroma SVD,5662,95.327,14.155,15.468,0.723404,0.808511,0.829787,0.182934,0.75922,92.730557

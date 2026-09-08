@@ -216,3 +216,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project secrets and bulky local indexes
+*.env
+*secret*
+*api_key*
+*apikey*
+*API_KEY*
+data/indexes/*.pkl
+data/indexes/*.joblib
+data/indexes/**/chroma.sqlite3
+data/indexes/**/index_metadata.pickle
+data/indexes/**/header.bin
+data/indexes/**/data_level*.bin
+data/indexes/**/length.bin
+data/indexes/**/link_lists.bin

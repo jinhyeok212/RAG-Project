@@ -1,0 +1,126 @@
+{
+  "adjudicated_source_file": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v2_refined\\eval_question_candidates_review_v2_refined_adjudicated.csv",
+  "standardized_output_file": "C:\\말똥가리\\data\\processed\\ontong_youth_eval_questions_v2_refined\\eval_question_candidates_review_v2_refined_adjudicated_standardized.csv",
+  "row_count": 100,
+  "blank_query_id_count": 0,
+  "duplicate_query_id_count": 0,
+  "label_human_counts": {
+    "0": 46,
+    "1": 42,
+    "2": 12
+  },
+  "label_claude_counts": {
+    "0": 76,
+    "2": 16,
+    "1": 8
+  },
+  "final_label_counts": {
+    "0": 53,
+    "1": 14,
+    "2": 33
+  },
+  "gold_answers_counts": {
+    "Y": 58,
+    "P": 1,
+    "N": 41
+  },
+  "query_wellformed_counts": {
+    "Y": 93,
+    "N": 7
+  },
+  "uniqueness_counts": {
+    "DUP": 7,
+    "U": 14,
+    "R": 33,
+    "-": 44,
+    "N": 2
+  },
+  "verdict_owner_counts": {
+    "양쪽 일치": 41,
+    "사람 판정 채택": 10,
+    "클로드 판정 채택": 28,
+    "재검토 후 제3의 판정": 21
+  },
+  "final_by_category": {
+    "교육": {
+      "0": 5,
+      "2": 9,
+      "1": 1
+    },
+    "복지문화": {
+      "0": 12,
+      "2": 8
+    },
+    "일자리": {
+      "0": 16,
+      "1": 8,
+      "2": 11
+    },
+    "주거": {
+      "2": 2,
+      "0": 12,
+      "1": 1
+    },
+    "참여권리": {
+      "1": 4,
+      "0": 8,
+      "2": 3
+    }
+  },
+  "final_by_question_type": {
+    "application_method": {
+      "1": 2,
+      "0": 9,
+      "2": 8
+    },
+    "application_period": {
+      "0": 10,
+      "2": 5,
+      "1": 2
+    },
+    "eligibility": {
+      "1": 3,
+      "2": 4,
+      "0": 4
+    },
+    "required_documents": {
+      "1": 2,
+      "0": 6,
+      "2": 4
+    },
+    "specific_policy_search": {
+      "0": 12,
+      "2": 7,
+      "1": 2
+    },
+    "support_content": {
+      "1": 3,
+      "0": 12,
+      "2": 5
+    }
+  },
+  "user_vs_claude": {
+    "human=0|claude=0": 45,
+    "human=1|claude=2": 13,
+    "human=1|claude=1": 6,
+    "human=2|claude=1": 2,
+    "human=1|claude=0": 23,
+    "human=2|claude=0": 8,
+    "human=2|claude=2": 2,
+    "human=0|claude=2": 1
+  },
+  "user_claude_final": {
+    "human=0|claude=0|final=0": 33,
+    "human=1|claude=2|final=1": 6,
+    "human=1|claude=1|final=1": 6,
+    "human=2|claude=1|final=1": 2,
+    "human=0|claude=0|final=2": 12,
+    "human=1|claude=0|final=2": 9,
+    "human=2|claude=0|final=2": 3,
+    "human=1|claude=2|final=2": 7,
+    "human=1|claude=0|final=0": 14,
+    "human=2|claude=2|final=2": 2,
+    "human=0|claude=2|final=0": 1,
+    "human=2|claude=0|final=0": 5
+  }
+}

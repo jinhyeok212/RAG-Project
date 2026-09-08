@@ -1,0 +1,38 @@
+﻿metric,value
+input_catalog_rows,2728
+input_raw_jsonl_rows,2728
+normalized_catalog_rows,2728
+normalized_raw_jsonl_rows,2728
+missing_policy_number_count,0
+duplicate_policy_number_count,0
+missing_document_id_count,0
+duplicate_document_id_count,0
+primary_category_unknown_count,1
+primary_mclsf_unknown_count,1
+multi_lclsf_row_count,50
+multi_mclsf_row_count,96
+unknown_or_check_row_count,1
+primary_category.일자리,1076
+primary_category.주거,282
+primary_category.교육,323
+primary_category.복지문화,658
+primary_category.참여권리,388
+primary_category.UNKNOWN,1
+primary_mclsf.취업,699
+primary_mclsf.재직자,51
+primary_mclsf.창업,326
+primary_mclsf.주택 및 거주지,138
+primary_mclsf.기숙사,9
+primary_mclsf.전월세 및 주거급여 지원,135
+primary_mclsf.미래역량강화,220
+primary_mclsf.교육비지원,72
+primary_mclsf.온라인교육,31
+primary_mclsf.취약계층 및 금융지원,294
+primary_mclsf.건강,98
+primary_mclsf.예술인지원,68
+primary_mclsf.문화활동,198
+primary_mclsf.청년참여,243
+primary_mclsf.정책인프라구축,79
+primary_mclsf.청년국제교류,46
+primary_mclsf.권익보호,20
+primary_mclsf.UNKNOWN,1
