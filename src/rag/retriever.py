@@ -10,6 +10,7 @@ from __future__ import annotations
 import math
 import time
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Mapping, Protocol, Sequence
 
 
@@ -35,6 +36,62 @@ class RetrievalConfig:
             raise ValueError("evaluation_max_k must be at least 1")
         if self.distance_metric != "cosine":
             raise ValueError("The baseline collection requires cosine distance")
+
+
+class KUREQueryEmbedder:
+    """Question-only KURE-v1 embedder used by the retrieval stage.
+
+    It does not embed documents and has no access to Chroma mutation methods.
+    """
+
+    def __init__(
+        self,
+        model_name: str = "nlpai-lab/KURE-v1",
+        device: str = "cpu",
+        expected_dimension: int = 1024,
+    ) -> None:
+        from sentence_transformers import SentenceTransformer
+
+        self.model = SentenceTransformer(
+            model_name,
+            device=device,
+            local_files_only=True,
+        )
+        actual_dimension = self.model.get_embedding_dimension()
+        if actual_dimension != expected_dimension:
+            raise ValueError(
+                "Unexpected query embedding dimension: "
+                f"expected {expected_dimension}, got {actual_dimension}"
+            )
+
+    def embed_query(self, query: str) -> Any:
+        query = query.strip()
+        if not query:
+            raise ValueError("query must not be empty")
+        embeddings = self.model.encode(
+            [query],
+            batch_size=1,
+            show_progress_bar=False,
+            convert_to_numpy=True,
+            normalize_embeddings=True,
+        )
+        return embeddings[0]
+
+
+def load_read_only_collection(db_dir: Path, collection_name: str) -> tuple[Any, Any]:
+    """Return the client and an existing collection without creating records."""
+    if not db_dir.is_dir():
+        raise FileNotFoundError(f"Chroma DB directory not found: {db_dir}")
+
+    import chromadb
+
+    client = chromadb.PersistentClient(path=str(db_dir))
+    try:
+        collection = client.get_collection(name=collection_name)
+    except Exception as exc:
+        client.close()
+        raise RuntimeError(f"Chroma collection not found: {collection_name}") from exc
+    return client, collection
 
 
 class Retriever:

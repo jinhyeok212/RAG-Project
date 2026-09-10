@@ -4,8 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import gc
 import json
+import shutil
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -13,8 +16,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.rag.embedding import load_existing_for_search  # noqa: E402
-from src.rag.retriever import RetrievalConfig, Retriever  # noqa: E402
+from src.rag.retriever import (  # noqa: E402
+    KUREQueryEmbedder,
+    RetrievalConfig,
+    Retriever,
+    load_read_only_collection,
+)
 
 DEFAULT_QUESTIONS = PROJECT_ROOT / "data" / "processed" / "ontong_youth_eval_questions_v2_final_47" / "eval_questions.jsonl"
 DEFAULT_DB_DIR = PROJECT_ROOT / "indexes" / "chroma" / "chroma_db"
@@ -57,26 +64,40 @@ def main() -> None:
     if not args.questions.is_file():
         raise FileNotFoundError(f"Question file not found: {args.questions}")
 
-    # Uses PersistentClient.get_collection(); never creates or mutates the DB.
-    embedder, collection = load_existing_for_search(
-        db_dir=args.db_dir,
-        collection_name=args.collection,
+    # Retrieval owns only question embedding. Chroma can update its SQLite file
+    # even on client startup, so search a temporary copy to keep the handed-off
+    # persistent collection byte-for-byte unchanged.
+    embedder = KUREQueryEmbedder(
         model_name=args.model,
         device=args.device,
-        embed_batch_size=1,
+        expected_dimension=1024,
     )
-    retriever = Retriever(
-        embedder,
-        collection,
-        RetrievalConfig(embedding_model=args.model, evaluation_max_k=args.top_k),
-    )
-
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    count = 0
-    with args.output.open("w", encoding="utf-8", newline="\n") as stream:
-        for query_id, query in read_questions(args.questions):
-            stream.write(json.dumps(retriever.retrieve(query_id, query), ensure_ascii=False) + "\n")
-            count += 1
+    with tempfile.TemporaryDirectory(
+        prefix="rag_retrieval_chroma_",
+        dir=args.output.parent,
+    ) as temp_dir:
+        working_db_dir = Path(temp_dir) / "chroma_db"
+        shutil.copytree(args.db_dir, working_db_dir)
+        client, collection = load_read_only_collection(working_db_dir, args.collection)
+        retriever = None
+        try:
+            retriever = Retriever(
+                embedder,
+                collection,
+                RetrievalConfig(embedding_model=args.model, evaluation_max_k=args.top_k),
+            )
+
+            count = 0
+            with args.output.open("w", encoding="utf-8", newline="\n") as stream:
+                for query_id, query in read_questions(args.questions):
+                    result = retriever.retrieve(query_id, query)
+                    stream.write(json.dumps(result, ensure_ascii=False) + "\n")
+                    count += 1
+        finally:
+            client.close()
+            del retriever, collection, client
+            gc.collect()
     print(f"Retrieved {count} questions")
     print(f"Output: {args.output.resolve()}")
 
