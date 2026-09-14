@@ -31,7 +31,7 @@ QRELS_PATH = (
 )
 
 
-class EvaluatorIntegrationTest(unittest.TestCase):
+class DocumentEvaluatorIntegrationTest(unittest.TestCase):
     """KURE-v1 Baseline의 실제 Document 평가 흐름을 확인한다."""
 
     @classmethod
@@ -148,7 +148,9 @@ class EvaluatorIntegrationTest(unittest.TestCase):
             self.assertEqual(manifest["experiment_id"], "exp_baseline_kure_v1")
             self.assertTrue((output_path / "document_metrics.jsonl").is_file())
             self.assertTrue((output_path / "document_summary.json").is_file())
-            self.assertTrue((output_path / "evaluation_manifest.json").is_file())
+            self.assertTrue(
+                (output_path / "document_evaluation_manifest.json").is_file()
+            )
 
 
 if __name__ == "__main__":

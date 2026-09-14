@@ -1,4 +1,4 @@
-"""Document Hit@k, RR, MRR 계산 테스트."""
+"""Document와 Chunk가 공통으로 사용하는 Hit@k, RR, MRR 계산 테스트."""
 
 import unittest
 
@@ -12,10 +12,10 @@ from src.evaluation.retrieval_metrics import (
 
 
 class RetrievalMetricsTest(unittest.TestCase):
-    """Document 검색 평가지표 계산이 정확한지 확인한다."""
+    """ID 종류와 관계없이 공통 검색 평가지표 계산이 정확한지 확인한다."""
 
-    # 정답 문서가 1위에 있을 때의 평가지표를 확인한다.
-    def test_gold_document_at_rank_1(self) -> None:
+    # 정답 ID가 1위에 있을 때의 평가지표를 확인한다.
+    def test_gold_id_at_rank_1(self) -> None:
         first_rank = find_first_relevant_rank(
             ["정책_A", "정책_B", "정책_C"],
             {"정책_A"},
@@ -27,8 +27,8 @@ class RetrievalMetricsTest(unittest.TestCase):
         self.assertEqual(calculate_hit_at_k(first_rank, 5), 1)
         self.assertEqual(calculate_reciprocal_rank(first_rank), 1.0)
 
-    # 정답 문서가 4위에 있을 때의 평가지표를 확인한다.
-    def test_gold_document_at_rank_4(self) -> None:
+    # 정답 ID가 4위에 있을 때의 평가지표를 확인한다.
+    def test_gold_id_at_rank_4(self) -> None:
         first_rank = find_first_relevant_rank(
             ["정책_A", "정책_B", "정책_C", "정책_D", "정책_E"],
             {"정책_D"},
@@ -40,8 +40,8 @@ class RetrievalMetricsTest(unittest.TestCase):
         self.assertEqual(calculate_hit_at_k(first_rank, 5), 1)
         self.assertEqual(calculate_reciprocal_rank(first_rank), 0.25)
 
-    # 정답 문서가 Top-5에 없을 때 모든 Hit@k와 RR이 0인지 확인한다.
-    def test_gold_document_not_retrieved(self) -> None:
+    # 정답 ID가 Top-5에 없을 때 모든 Hit@k와 RR이 0인지 확인한다.
+    def test_gold_id_not_retrieved(self) -> None:
         first_rank = find_first_relevant_rank(
             ["정책_A", "정책_B", "정책_C", "정책_D", "정책_E"],
             {"정책_F"},
@@ -53,8 +53,8 @@ class RetrievalMetricsTest(unittest.TestCase):
         self.assertEqual(calculate_hit_at_k(first_rank, 5), 0)
         self.assertEqual(calculate_reciprocal_rank(first_rank), 0.0)
 
-    # Gold 문서가 여러 개면 가장 먼저 검색된 Gold의 순위를 사용하는지 확인한다.
-    def test_multiple_gold_documents_use_first_match(self) -> None:
+    # Gold ID가 여러 개면 가장 먼저 검색된 Gold의 순위를 사용하는지 확인한다.
+    def test_multiple_gold_ids_use_first_match(self) -> None:
         first_rank = find_first_relevant_rank(
             ["정책_A", "정책_B", "정책_C", "정책_D"],
             {"정책_B", "정책_D"},

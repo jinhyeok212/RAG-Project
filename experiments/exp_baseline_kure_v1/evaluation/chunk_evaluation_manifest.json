@@ -1,0 +1,12 @@
+{
+  "experiment_id": "exp_baseline_kure_v1",
+  "evaluation_scope": "chunk",
+  "dataset_version": "ontong_youth_mvp_400_v1",
+  "chunking_version": "c2_section_800_v1",
+  "embedding_model": "nlpai-lab/KURE-v1",
+  "index_version": "index_baseline_kure_v1",
+  "distance_metric": "cosine",
+  "evaluation_max_k": 5,
+  "question_count": 47,
+  "qrels_count": 50
+}
