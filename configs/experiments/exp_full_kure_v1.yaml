@@ -1,0 +1,58 @@
+schema_version: "1.0"
+
+experiment_id: exp_full_kure_v1
+experiment_name: full-dataset-kure-baseline
+base_experiment_id: null
+
+dataset:
+  version: ontong_youth_full_v1
+  preprocessing_version: ontong_youth_document_v1
+  document_path: data/processed/ontong_youth_full_v1/documents.jsonl
+  chunk_path: data/processed/ontong_youth_full_v1/chunks.jsonl
+  manifest_path: data/processed/ontong_youth_full_v1/dataset_manifest.json
+
+evaluation:
+  version: eval_full_v1
+  questions_path: data/evaluation/eval_full_v1/eval_questions.jsonl
+  document_qrels_path: data/evaluation/eval_full_v1/qrels.jsonl
+  chunk_qrels_path: data/evaluation/eval_full_v1/qrels_chunk.jsonl
+  manifest_path: data/evaluation/eval_full_v1/evaluation_manifest.json
+
+chunking:
+  version: c2_section_800_ov120_v1
+  strategy: section
+  size: 800
+  overlap: 120
+  unit: characters
+  target_field: retrieval_text
+
+embedding:
+  model: nlpai-lab/KURE-v1
+  dimension: 1024
+  normalize: true
+  batch_size: 32
+  device: auto
+
+index:
+  version: index_full_kure_v1
+  db_path: indexes/chroma/index_full_kure_v1
+  collection_name: ontong_youth_full_kure_v1
+  distance_metric: cosine
+
+retrieval:
+  evaluation_max_k: 5
+  context_top_k: 3
+
+runtime:
+  output_root: experiments
+  registry_path: registry/experiments
+  fail_fast: true
+
+pipeline:
+  entrypoints:
+    validate_documents: src.data.validate_documents:validate_documents
+    build_chunks: src.chunking.build_chunks:build_chunks
+    resolve_index: src.indexing.index_resolver:resolve_index
+    run_batch_retrieval: src.retrieval.batch_retriever:run_batch_retrieval
+    evaluate_experiment: src.evaluation.evaluate_experiment:evaluate_experiment
+    write_experiment_artifacts: src.experiments.artifact_writer:write_experiment_artifacts

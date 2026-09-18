@@ -1,0 +1,341 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "experiment.schema.json",
+    "title": "RAG Experiment Configuration",
+    "description": "Experiment Runner에서 사용하는 공통 실험 설정 규격",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "schema_version",
+      "experiment_id",
+      "experiment_name",
+      "base_experiment_id",
+      "dataset",
+      "evaluation",
+      "chunking",
+      "embedding",
+      "index",
+      "retrieval",
+      "runtime",
+      "pipeline"
+    ],
+    "properties": {
+      "schema_version": {
+        "type": "string",
+        "const": "1.0"
+      },
+      "experiment_id": {
+        "type": "string",
+        "pattern": "^exp_[a-z0-9]+(?:_[a-z0-9]+)*$",
+        "minLength": 5,
+        "maxLength": 100
+      },
+      "experiment_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 150
+      },
+      "base_experiment_id": {
+        "oneOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "string",
+            "pattern": "^exp_[a-z0-9]+(?:_[a-z0-9]+)*$"
+          }
+        ]
+      },
+      "dataset": {
+        "$ref": "#/$defs/dataset"
+      },
+      "evaluation": {
+        "$ref": "#/$defs/evaluation"
+      },
+      "chunking": {
+        "$ref": "#/$defs/chunking"
+      },
+      "embedding": {
+        "$ref": "#/$defs/embedding"
+      },
+      "index": {
+        "$ref": "#/$defs/index"
+      },
+      "retrieval": {
+        "$ref": "#/$defs/retrieval"
+      },
+      "runtime": {
+        "$ref": "#/$defs/runtime"
+      },
+      "pipeline": {
+        "$ref": "#/$defs/pipeline"
+      }
+    },
+    "$defs": {
+      "relativePath": {
+        "type": "string",
+        "minLength": 1
+      },
+      "version": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "entrypoint": {
+        "type": "string",
+        "pattern": "^[A-Za-z_][A-Za-z0-9_.]*:[A-Za-z_][A-Za-z0-9_]*$"
+      },
+      "dataset": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "preprocessing_version",
+          "document_path",
+          "chunk_path",
+          "manifest_path"
+        ],
+        "properties": {
+          "version": {
+            "$ref": "#/$defs/version"
+          },
+          "preprocessing_version": {
+            "$ref": "#/$defs/version"
+          },
+          "document_path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "chunk_path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "manifest_path": {
+            "$ref": "#/$defs/relativePath"
+          }
+        }
+      },
+      "evaluation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "questions_path",
+          "document_qrels_path",
+          "chunk_qrels_path",
+          "manifest_path"
+        ],
+        "properties": {
+          "version": {
+            "$ref": "#/$defs/version"
+          },
+          "questions_path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "document_qrels_path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "chunk_qrels_path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "manifest_path": {
+            "$ref": "#/$defs/relativePath"
+          }
+        }
+      },
+      "chunking": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "strategy",
+          "size",
+          "overlap",
+          "unit",
+          "target_field"
+        ],
+        "properties": {
+          "version": {
+            "$ref": "#/$defs/version"
+          },
+          "strategy": {
+            "type": "string",
+            "enum": [
+              "fixed",
+              "section",
+              "semantic",
+              "parent_child"
+            ]
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "overlap": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "characters",
+              "tokens"
+            ]
+          },
+          "target_field": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "embedding": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "model",
+          "dimension",
+          "normalize",
+          "batch_size",
+          "device"
+        ],
+        "properties": {
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dimension": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "normalize": {
+            "type": "boolean"
+          },
+          "batch_size": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "cpu",
+              "cuda",
+              "mps"
+            ]
+          }
+        }
+      },
+      "index": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "db_path",
+          "collection_name",
+          "distance_metric"
+        ],
+        "properties": {
+          "version": {
+            "$ref": "#/$defs/version"
+          },
+          "db_path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "collection_name": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+            "minLength": 3,
+            "maxLength": 100
+          },
+          "distance_metric": {
+            "type": "string",
+            "enum": [
+              "cosine",
+              "l2",
+              "ip"
+            ]
+          }
+        }
+      },
+      "retrieval": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evaluation_max_k",
+          "context_top_k"
+        ],
+        "properties": {
+          "evaluation_max_k": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "context_top_k": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      },
+      "runtime": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "output_root",
+          "registry_path",
+          "fail_fast"
+        ],
+        "properties": {
+          "output_root": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "registry_path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "fail_fast": {
+            "const": true
+          }
+        }
+      },
+      "pipeline": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entrypoints"
+        ],
+        "properties": {
+          "entrypoints": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "validate_documents",
+              "build_chunks",
+              "resolve_index",
+              "run_batch_retrieval",
+              "evaluate_experiment",
+              "write_experiment_artifacts"
+            ],
+            "properties": {
+              "validate_documents": {
+                "$ref": "#/$defs/entrypoint"
+              },
+              "build_chunks": {
+                "$ref": "#/$defs/entrypoint"
+              },
+              "resolve_index": {
+                "$ref": "#/$defs/entrypoint"
+              },
+              "run_batch_retrieval": {
+                "$ref": "#/$defs/entrypoint"
+              },
+              "evaluate_experiment": {
+                "$ref": "#/$defs/entrypoint"
+              },
+              "write_experiment_artifacts": {
+                "$ref": "#/$defs/entrypoint"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
