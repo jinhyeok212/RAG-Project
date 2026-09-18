@@ -1,0 +1,9 @@
+{
+  "question_count": 47,
+  "chunk_hit_at_1": 0.5106382978723404,
+  "chunk_hit_at_3": 0.851063829787234,
+  "chunk_hit_at_5": 0.8723404255319149,
+  "chunk_mrr": 0.6684397163120568,
+  "top_5_success_count": 41,
+  "top_5_failure_count": 6
+}
