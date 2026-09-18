@@ -896,3 +896,21 @@ index:
 6. 전체 데이터 KURE-v1 Baseline 실행
 
 Quality Gate의 구체적인 수치, Release, Staging, Production 배포 및 Rollback은 전체 데이터 Baseline 결과가 생성된 후 진행한다.
+
+---
+
+## 15. Experiment Schema
+
+공통 실험 YAML은 다음 JSON Schema로 검증한다.
+
+```text
+schemas/experiment.schema.json
+
+---
+
+## 16. Config Validator
+
+공통 실험 YAML은 다음 모듈에서 자동으로 검증한다.
+
+```text
+src/experiments/config_validator.py
