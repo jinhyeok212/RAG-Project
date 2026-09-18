@@ -914,3 +914,55 @@ schemas/experiment.schema.json
 
 ```text
 src/experiments/config_validator.py
+
+---
+
+## 17. 모듈 입출력 계약
+
+각 Pipeline 모듈은 다음 함수명과 인자 순서를 사용한다.
+
+```python
+def validate_documents(config) -> DatasetInfo:
+    ...
+
+def build_chunks(config, dataset_info) -> ChunkInfo:
+    ...
+
+def resolve_index(config, chunk_info) -> IndexInfo:
+    ...
+
+def run_batch_retrieval(
+    config,
+    index_info,
+) -> list[RetrievalResult]:
+    ...
+
+def evaluate_experiment(
+    config,
+    retrieval_results,
+) -> EvaluationResult:
+    ...
+
+def write_experiment_artifacts(
+    config,
+    run_context,
+) -> ArtifactInfo | None:
+    ...
+
+---
+
+## 18. Experiment Runner
+
+전체 실험 실행은 다음 모듈이 담당한다.
+
+```text
+src/experiments/runner.py
+
+---
+
+## 19. Experiment Runner 테스트
+
+Experiment Config, Module Contract 및 Runner 연결 구조는 다음 테스트에서 검증한다.
+
+```text
+tests/test_experiment_runner.py

@@ -273,7 +273,10 @@ def configure_logger(
         "experiment_runner"
     )
 
-    logger.handlers.clear()
+    for handler in list(logger.handlers):
+        handler.close()
+        logger.removeHandler(handler)
+
     logger.setLevel(logging.INFO)
     logger.propagate = False
 
@@ -550,6 +553,12 @@ def run_experiment(
             experiment_id,
         )
         raise
+
+    finally:
+        for handler in list(logger.handlers):
+            handler.flush()
+            handler.close()
+            logger.removeHandler(handler)
 
 
 def build_parser() -> argparse.ArgumentParser:
